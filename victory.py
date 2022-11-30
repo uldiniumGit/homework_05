@@ -13,7 +13,6 @@ def check_answer(answer, correct_answer):
     if answer == correct_answer:
         return 1
     else:
-        print('Неверно. Правильная дата рождения:', dict_dates[correct_answer], '\n')
         return 0
 
 
@@ -46,34 +45,73 @@ def victory():
         # Задаем участнику викторины вопросы, и проверяем ответы
         if 'Mozart' in result:
             mozart_attempt = input('введите дату рождения Моцарта\n')
-            correct_answers += check_answer(mozart_attempt, mozart_birthday_year)
+            if check_answer(mozart_attempt, mozart_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[mozart_birthday_year], '\n')
+
         if 'Bach' in result:
             bach_attempt = input('введите дату рождения Баха\n')
-            correct_answers += check_answer(bach_attempt, bach_birthday_year)
+            if check_answer(bach_attempt, bach_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[bach_birthday_year], '\n')
+
         if 'Vivaldi' in result:
             vivaldi_attempt = input('введите дату рождения Вивальди\n')
-            correct_answers += check_answer(vivaldi_attempt, vivaldi_birthday_year)
+            if check_answer(vivaldi_attempt, vivaldi_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[vivaldi_birthday_year], '\n')
+
         if 'Grieg' in result:
             grieg_attempt = input('введите дату рождения Грига\n')
-            correct_answers += check_answer(grieg_attempt, grieg_birthday_year)
+            if check_answer(grieg_attempt, grieg_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[grieg_birthday_year], '\n')
+
         if 'Liszt' in result:
             liszt_attempt = input('введите дату рождения Листа\n')
-            correct_answers += check_answer(liszt_attempt, liszt_birthday_year)
+            if check_answer(liszt_attempt, liszt_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[liszt_birthday_year], '\n')
+
         if 'Schubert' in result:
             schubert_attempt = input('введите дату рождения Шуберта\n')
-            correct_answers += check_answer(schubert_attempt, schubert_birthday_year)
+            if check_answer(schubert_attempt, schubert_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[schubert_birthday_year], '\n')
+
         if 'Beethoven' in result:
             beethoven_attempt = input('введите дату рождения Бетховена\n')
-            correct_answers += check_answer(beethoven_attempt, beethoven_birthday_year)
+            if check_answer(beethoven_attempt, beethoven_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[beethoven_birthday_year], '\n')
+
         if 'Salieri' in result:
             salieri_attempt = input('введите дату рождения Сальери\n')
-            correct_answers += check_answer(salieri_attempt, salieri_birthday_year)
+            if check_answer(salieri_attempt, salieri_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[salieri_birthday_year], '\n')
+
         if 'Tchaikovsky' in result:
             tchaikovsky_attempt = input('введите дату рождения Чайковского\n')
-            correct_answers += check_answer(tchaikovsky_attempt, tchaikovsky_birthday_year)
+            if check_answer(tchaikovsky_attempt, tchaikovsky_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[tchaikovsky_birthday_year], '\n')
+
         if 'Wagner' in result:
             wagner_attempt = input('введите дату рождения Вагнера\n')
-            correct_answers += check_answer(wagner_attempt, wagner_birthday_year)
+            if check_answer(wagner_attempt, wagner_birthday_year) == 1:
+                correct_answers += 1
+            else:
+                print('Неверно. Правильная дата рождения:', dict_dates[wagner_birthday_year], '\n')
 
         # Переменная для неправильных ответов
         incorrect_answers = 5 - correct_answers
@@ -95,3 +133,7 @@ def victory():
             pass
         else:
             break
+
+
+if __name__ == '__main__':
+    victory()

@@ -3,33 +3,28 @@ import shutil
 import sys
 
 
-def create_folder():
+def create_folder(folder_name):
     '''
     Создать папку
     '''
-    folder_name = input('введите название папки\n')
     os.mkdir(folder_name)
 
 
-def delete_folder():
+def delete_folder(folder_name):
     '''
-    Удалить (файл/папку)
+    Удалить (папку)
     '''
-    folder_name = input('введите название папки\n')
     os.rmdir(folder_name)
 
 
-def copy_folder_or_file():
+def copy_folder_or_file(fpath, file_name, folder_name):
     '''
     Копировать (файл/папку)
     '''
-    file_name = input('введите название файла\n')
-    fpath = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/{file_name}'
     if os.path.isdir(fpath):
-        folder_name = input('введите новое название\n')
         shutil.copytree(file_name, folder_name, copy_function=shutil.copy)
+
     else:
-        folder_name = input('введите новый путь\n')
         shutil.copy(file_name, folder_name)
 
 

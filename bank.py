@@ -17,9 +17,12 @@ def bank_program():
 
         choice = input('Выберите пункт меню\n')
         if choice == '1':
-            balance = donate(balance)
+            deposit = int(input('введите сумму пополнения\n'))
+            balance = donate(balance, deposit)
         elif choice == '2':
-            balance, purchase_dict = buy(balance, purchase_dict)
+            price = int(input('введите сумму покупки\n'))
+            purchase = input('введите название покупки\n')
+            balance, purchase_dict = buy(balance, price, purchase, purchase_dict)
         elif choice == '3':
             buy_dict(purchase_dict)
         elif choice == '4':
