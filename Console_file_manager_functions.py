@@ -35,6 +35,26 @@ def show_files_and_folders():
     print(os.listdir())
 
 
+def save_files_and_folders():
+    files_and_folders_list = os.listdir()
+    files_list = []
+    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
+    for i in files_and_folders_list:
+        if os.path.isfile(folder_path + i):
+            files_list.append(i)
+
+    files_and_folders_list = os.listdir()
+    folders_list = []
+    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
+    for i in files_and_folders_list:
+        if os.path.isdir(folder_path + i):
+            folders_list.append(i)
+
+    files_and_folders = open("listdir.txt", "w")
+    files_and_folders.write(f'files: {files_list}\n dirs: {folders_list}')
+    files_and_folders.close()
+
+
 def show_folders():
     '''
     Посмотреть только папки
