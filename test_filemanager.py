@@ -39,8 +39,7 @@ def test_check_answer():
 
 
 def test_create_and_delete_folder():
-    if os.path.isdir(os.getcwd() + '/abc'):
-        assert False, 'такая папка уже существует, замените название папки в тесте'
+
     folder_name = 'abc'
     create_folder(folder_name)
     assert os.path.isdir(os.getcwd() + '/abc')
