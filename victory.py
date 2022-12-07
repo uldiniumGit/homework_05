@@ -10,10 +10,7 @@ dict_dates = {'27.01.1756': 'двадцать седьмое января 1756 �
 
 # Функция для проверки ответа
 def check_answer(answer, correct_answer):
-    if answer == correct_answer:
-        return 1
-    else:
-        return 0
+    return 1 if answer == correct_answer else 0
 
 
 def victory():
@@ -129,6 +126,7 @@ def victory():
         print('Процент неправильных ответов', incorrect_answers * 100 / 5)
 
         play_again = input('\nХотите сыграть еще раз?\n')
+
         if play_again == 'да':
             pass
         else:

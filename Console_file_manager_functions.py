@@ -7,25 +7,34 @@ def create_folder(folder_name):
     '''
     Создать папку
     '''
-    os.mkdir(folder_name)
+    try:
+        os.mkdir(folder_name)
+    except FileExistsError:
+        print('Такая папка уже существует')
 
 
 def delete_folder(folder_name):
     '''
     Удалить (папку)
     '''
-    os.rmdir(folder_name)
+    try:
+        os.rmdir(folder_name)
+    except FileNotFoundError:
+        print('Такой попки не существует')
 
 
 def copy_folder_or_file(fpath, file_name, folder_name):
     '''
     Копировать (файл/папку)
     '''
-    if os.path.isdir(fpath):
-        shutil.copytree(file_name, folder_name, copy_function=shutil.copy)
+    try:
+        if os.path.isdir(fpath):
+            shutil.copytree(file_name, folder_name, copy_function=shutil.copy)
 
-    else:
-        shutil.copy(file_name, folder_name)
+        else:
+            shutil.copy(file_name, folder_name)
+    except FileNotFoundError:
+        print('Такой попки или файла не существует')
 
 
 def show_files_and_folders():
@@ -37,18 +46,11 @@ def show_files_and_folders():
 
 def save_files_and_folders():
     files_and_folders_list = os.listdir()
-    files_list = []
-    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
-    for i in files_and_folders_list:
-        if os.path.isfile(folder_path + i):
-            files_list.append(i)
+    folder_path = os.getcwd() + '/'
 
-    files_and_folders_list = os.listdir()
-    folders_list = []
-    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
-    for i in files_and_folders_list:
-        if os.path.isdir(folder_path + i):
-            folders_list.append(i)
+    files_list = [i for i in files_and_folders_list if os.path.isfile(folder_path + i)]
+
+    folders_list = [i for i in files_and_folders_list if os.path.isdir(folder_path + i)]
 
     files_and_folders = open("listdir.txt", "w")
     files_and_folders.write(f'files: {files_list}\n dirs: {folders_list}')
@@ -59,32 +61,25 @@ def show_folders():
     '''
     Посмотреть только папки
     '''
+
     files_and_folders_list = os.listdir()
-    folders_list = []
-    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
-    for i in files_and_folders_list:
-        if os.path.isdir(folder_path + i):
-            folders_list.append(i)
+    folder_path = os.getcwd() + '/'
+
+    folders_list = [i for i in files_and_folders_list if os.path.isdir(folder_path + i)]
+
     print(folders_list)
-
-
-"""
-Более короткий вариант
-folders_list_another = [f.path for f in os.scandir('.') if f.is_dir()]
-print(folders_list_another)
-"""
 
 
 def show_files():
     '''
     Посмотреть только файлы
     '''
+
     files_and_folders_list = os.listdir()
-    files_list = []
-    folder_path = f'C:/Users/Роман/PycharmProjects/консольный_файловый_менеджер/'
-    for i in files_and_folders_list:
-        if os.path.isfile(folder_path + i):
-            files_list.append(i)
+    folder_path = os.getcwd() + '/'
+
+    files_list = [i for i in files_and_folders_list if os.path.isfile(folder_path + i)]
+
     print(files_list)
 
 
